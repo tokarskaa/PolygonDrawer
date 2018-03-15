@@ -1,0 +1,46 @@
+﻿<Window x:Class="PolygonDrawer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PolygonDrawer"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        DataContext="local:MainWindowViewModel"
+        Title="MainWindow" Height="350" Width="525"
+        Name="mainWindow">
+    <Window.Resources>
+        <ContextMenu x:Key="vertexMenu">
+            <MenuItem Header="Delete vertex"  Click="DeleteVertex_Click"/>
+        </ContextMenu>
+        <ContextMenu x:Key="lineMenu">
+            <MenuItem Header="Add vertex" Click="AddVertex_Click"/>
+            <MenuItem Name="verticalItem" Header="Set edge vertically" Click="Vertical_Click" IsEnabled="{Binding Path=selectedLine.Vertical}"/>
+            <MenuItem Name="horizontalItem" Header="Set edge horizontally" Click="Horizontal_Click"/>
+            <MenuItem Header="Set length" Click="Length_Click"/>
+        </ContextMenu>
+        <ContextMenu x:Key="constrainedMenu">
+            <MenuItem Header="Add vertex" Click="AddVertex_Click"/>
+            <MenuItem Header="Remove constraint" Click="RemoveConstraint_Click"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Background="LightGray" Grid.Column="0" BorderBrush="DarkGray" BorderThickness="3"/>
+        <StackPanel Grid.Column="0" Margin="5">
+            <Button Name="DeleteButton" Click="Button_Click" Height="40" Margin="15">delete polygon</Button>
+            <Button Name="DrawButton" Click="Draw_Click" Height="40" Margin="15">draw polygon</Button>
+            </StackPanel>
+        
+        <Grid Grid.Column="1" Name="ImageGrid" MouseLeftButtonDown="Grid_MouseLeftButtonDown" MouseMove="MainBorder_MouseMove" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseRightButtonDown="Grid_MouseRightButtonDown">
+            <Canvas Name="LabelCanvas" Panel.ZIndex="2" Background="Transparent">
+            </Canvas>
+            <Image  Name="MainImage" Stretch="Fill" Panel.ZIndex="1"></Image>
+            
+        </Grid>
+        
+    </Grid>
+</Window>

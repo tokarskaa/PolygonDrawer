@@ -1,0 +1,11 @@
+1. Klikniêcie lewym przycikiem myszy na pierwszy wierzcho³ek wielok¹ta, gdy wielok¹t nie jest skoñczony - zakoñczenie rysowania wielok¹ta.
+2. Klikniêcie lewym przyciskiem myszy na wierzcho³ek, przytrzymanie, przeci¹gniêcie i puszczenie przycisku - przesuniêcie wierzcho³ka.
+3. Kilkniecie lewym przyciskiem myszy na krawêdŸ, przytrzymanie, przeci¹gniêcie i puszczenie przycisku - przesuniêcie ca³ego wielok¹ta.
+4. Klikniêcie prawym prawym przyciskiem myszy na wierzcho³ek - otwarcie menu i mo¿liwe usuniêcie wierzcho³ka.
+5. Klikniêcie prawym przyciskiem myszy na krawêdŸ - otwarcie menu, mo¿liwe dodanie/usuniêcie ograniczeñ, ustalenie d³ugoœci, dodanie wierzcho³ka.
+6. Start rysowania - przycisk 'draw polygon'.
+7. Rysowanie kolejnego wielok¹ta - przycisk 'draw polygon' (tylko gdy poprzedni wielok¹t zosta³ zakoñczony).
+8. Usuwanie kolejnych wielok¹tów - przycisk "delete polygon' (tylko gdy jest zakoñczone rysowanie wielok¹ta).
+
+Algorytm relacji:
+Przy ka¿dej zmianie wielokata(przesuniêcie wielok¹ta/wierzcho³ka, dodanie/usuniêcie wierzcho³ka, dodanie/usuniêcie ograniczeñ ) wspó³rzêdne wszystkich wierzcho³ków s¹ wyliczane na nowo. W pêtli wspó³rzêdne ka¿dej krawêdzi s¹ poprawiane o ma³¹ wartoœæ( np 0,5 px) na podstawie tego, jakie s¹ na³o¿one ograniczenia. Pêtla przerywa siê, gdy b³¹d (np w przypadku ustawiania krawêdzi pionowo bedzie to ró¿nica wspó³rzêdnych x) bêdzie zadowalaj¹co ma³y dla ka¿dej krawêdzi i ka¿dego ograniczenia.
